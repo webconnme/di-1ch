@@ -29,6 +29,7 @@ import (
 	"github.com/webconnme/go-webconn-gpio"
 	"log"
 	"fmt"
+	"strconv"
 )
 
 var client webconn.Webconn
@@ -44,6 +45,7 @@ func D1_IN(buf []byte) error{
 		log.Println(err)
 		return err
 	}
+	client.Write("di", []byte(strconv.Itoa(din)))
 
 	log.Println(">>>di data : ",din)
 
